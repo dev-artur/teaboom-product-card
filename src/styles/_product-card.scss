@@ -1,0 +1,352 @@
+@use 'variables' as *;
+
+.breadcrumbs {
+  margin-bottom: 16px;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  content: '—';
+  margin-left: 8px;
+  color: var(--color-border);
+}
+
+.breadcrumbs__item[aria-current='page'] {
+  color: var(--color-text);
+}
+
+.product-card {
+  display: grid;
+  gap: 24px;
+  padding: 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+
+  @include tablet-up {
+    grid-template-columns: minmax(260px, 40%) 1fr;
+    align-items: start;
+    gap: 32px;
+    padding: 24px;
+  }
+
+  @include desktop-up {
+    grid-template-columns: minmax(360px, 45%) 1fr;
+    gap: 48px;
+    padding: 32px;
+  }
+}
+
+.product-gallery {
+  position: relative;
+  background-color: var(--color-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.product-gallery__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.product-gallery__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  background-color: var(--color-sale);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.product-card__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-card__category {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+}
+
+.product-card__category-link:hover {
+  color: var(--color-ink);
+}
+
+.product-card__title {
+  color: var(--color-ink);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  @include tablet-up {
+    font-size: 28px;
+  }
+
+  @include desktop-up {
+    font-size: 32px;
+  }
+}
+
+.product-card__sku {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.product-card__sku-value {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+// --- Фасовки ---
+
+.variants__legend {
+  margin-bottom: 10px;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.variants__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+
+  @include tablet-up {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.variant {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 14px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    box-shadow var(--transition);
+
+  &:hover {
+    border-color: var(--color-accent-dark);
+    background-color: var(--color-cream);
+  }
+
+  &[aria-checked='true'] {
+    border-color: var(--color-accent-dark);
+    background-color: var(--color-cream);
+    box-shadow: inset 0 0 0 1px var(--color-accent-dark);
+  }
+}
+
+.variant__weight {
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.variant__price {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+// --- Цена ---
+
+.price {
+  padding: 16px;
+  background-color: var(--color-cream);
+  border-radius: var(--radius-sm);
+}
+
+.price__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+}
+
+.price__current {
+  color: var(--color-sale);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+
+  @include tablet-up {
+    font-size: 32px;
+  }
+}
+
+.price__old {
+  color: var(--color-muted);
+  font-size: 16px;
+}
+
+.price__badge {
+  padding: 2px 10px;
+  background-color: var(--color-sale);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.price__note {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+// --- Кнопка и наличие ---
+
+.product-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition:
+    background-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.button--primary {
+  flex: 1 1 100%;
+  background-color: var(--color-accent);
+  color: var(--color-ink);
+
+  @include tablet-up {
+    flex: 0 0 auto;
+  }
+
+  &:hover {
+    background-color: var(--color-accent-dark);
+    box-shadow: var(--shadow-hover);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+}
+
+.button__icon {
+  flex-shrink: 0;
+}
+
+.product-card__stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-stock);
+  font-weight: 600;
+}
+
+.product-card__stock-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-stock);
+  border-radius: 50%;
+}
+
+// --- Описание ---
+
+.product-card__description {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.product-card__description-title {
+  margin-bottom: 8px;
+  color: var(--color-ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.product-card__facts {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.product-card__fact {
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+
+  @include tablet-up {
+    grid-template-columns: 96px 1fr;
+    gap: 12px;
+  }
+}
+
+.product-card__fact-label {
+  color: var(--color-muted);
+}
+
+// --- Уведомление ---
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 16px);
+  padding: 12px 24px;
+  background-color: var(--color-ink);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: var(--shadow-hover);
+  opacity: 0;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

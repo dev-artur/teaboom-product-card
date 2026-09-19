@@ -1,0 +1,41 @@
+// Токены сняты с действующего сайта Teaboom.ru, чтобы карточка не выбивалась из стилистики
+:root {
+  --color-accent: #f5d730;
+  --color-accent-dark: #e4c51c;
+  --color-ink: #202020;
+  --color-text: #444444;
+  --color-muted: #8a8a8a;
+  --color-page: #fbfbfb;
+  --color-surface: #ffffff;
+  --color-cream: #fefcef;
+  --color-border: #e8e8e8;
+  --color-sale: #e03131;
+  --color-stock: #5aa02c;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 50px;
+
+  --shadow-card: 0 2px 16px rgba(32, 32, 32, 0.06);
+  --shadow-hover: 0 6px 20px rgba(32, 32, 32, 0.12);
+
+  --transition: 0.2s ease;
+}
+
+$font-base: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+$bp-mobile: 375px;
+$bp-tablet: 768px;
+$bp-desktop: 1200px;
+
+@mixin tablet-up {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
